@@ -1,1 +1,2 @@
-print('ujkghessss')
+print('ujkghessss
+print('watan')
