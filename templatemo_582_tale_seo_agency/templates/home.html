@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="sidebar">
+        <a href="{{ url_for('signin') }}"><i class="fas fa-sign-in-alt"></i> <span>Sign In</span></a>
+        <a href="{{ url_for('signup') }}"><i class="fas fa-user-plus"></i> <span>Sign Up</span></a>
+        <a href="{{ url_for('profile') }}"><i class="fas fa-user"></i> <span>View Profile</span></a>
+        <a href="{{ url_for('signout') }}"><i class="fas fa-sign-out-alt"></i> <span>Sign Out</span></a>
+    </div>
+    <div class="container">
+        <header>
+            <h1>Welcome to EcoPeace</h1>
+        </header>
+    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
