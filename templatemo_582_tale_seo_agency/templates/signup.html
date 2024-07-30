@@ -2,9 +2,12 @@
 <html>
 <head>
     <title>Sign Up</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='signinup.css') }}">
+
 </head>
-<body>
+<body class="signup">
+
     <div class="overlay"></div>
     <div class="container">
         <header>
@@ -14,8 +17,9 @@
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
             <input type="submit" value="Sign Up">
-            <a href="{{ url_for('signin') }}">Already have an account? Sign in here.</a>
+            <a href="{{ url_for('signin') }}" class="link">Already have an account? Sign in here.</a>
         </form>
     </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>

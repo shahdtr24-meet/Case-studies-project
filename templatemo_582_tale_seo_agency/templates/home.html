@@ -4,27 +4,35 @@
     <title>Home</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-<body>
-    <div class="overlay"></div>
+<body class="home">
     <div class="sidebar">
         <a href="{{ url_for('signin') }}"><i class="fas fa-sign-in-alt"></i> <span>Sign In</span></a>
         <a href="{{ url_for('signup') }}"><i class="fas fa-user-plus"></i> <span>Sign Up</span></a>
         <a href="{{ url_for('profile') }}"><i class="fas fa-user"></i> <span>View Profile</span></a>
         <a href="{{ url_for('signout') }}"><i class="fas fa-sign-out-alt"></i> <span>Sign Out</span></a>
     </div>
-    <div class="container">
+    <div class="main-content">
         <header>
             <h1>Welcome to EcoPeace</h1>
-
         </header>
-        <div><p> EcoPeace is a non profit oranization who works to create peace in the middle east whilst taking care of our planet. We bring together Israeli, Palestinian and Jordanian environmentalists to work together to a shared future.</p></div>
-
-        <div></div>
-
-        <div></div>
-
-        <div></div>
+        <div class="info">
+            <p class="fade-in">EcoPeace is a non-profit organization that works to create peace in the Middle East while taking care of our planet. We bring together Israeli, Palestinian, and Jordanian environmentalists to work together towards a shared future.</p>
+        </div>
+        <div class="collaboration">
+            <button class="collab-toggle">Collaboration</button>
+            <div class="collab-content">
+                <p>As a part of our extended social reach program, EcoPeace has collaborated and connected with other companies with a similar vision to ours. We aim to reach as many people as possible from our target audience and achieve our beautiful vision: a step closer to peace, and an improved climate in our surroundings.</p>
+                <p>A little about one of our prestigious collaborators: One of our collaborations is with a European Studies program that is launched partly in Dusseldorf, Germany, at the Heinrich Heine University. The program was founded in 2004 by Ambassador Avi Primor, together with HRH Prince El-Hassan bin Talal, who founded the Royal Scientific Society in Amman, and Prof. Sari Nusseibeh, the president of Al-Quds University in East Jerusalem.</p>
+                <p>The Master’s degree program in European Studies was launched in 2009. The students spent one year studying and living together in Germany. Since 2010, Jordanian students from Amman have been taking part in the trilateral program as well.</p>
+                <p>In the context of our collaboration, EcoPeace has added classes to the schedule of these students to educate them on the environmental situation in the Middle East. Both we and the European Studies program have similar visions. We have benefited from this collaboration: the students are more educated and speak on our behalf at many events. The European Studies program is also given beneficial services from us, such as bringing our teams to speak to the students and bringing groups of students willing to experience the Middle East, its climates, and its cultures.</p>
+            </div>
+        </div>
     </div>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        document.querySelector('.collab-toggle').addEventListener('click', function() {
+            document.querySelector('.collab-content').classList.toggle('show');
+        });
+    </script>
 </body>
 </html>

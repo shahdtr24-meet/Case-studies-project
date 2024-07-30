@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Sign In and Sign Up Page Styles */
+body.signin,
+body.signup {
+    background: url('b.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.container {
+    width: 90%;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+    animation: slideIn 0.5s ease-out;
+}
+
+header {
+    background: #043927;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+    border-color: #043927;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+form input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background: #043927;
+    border: 0;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background: #8FBC8B;
+    transform: scale(1.05);
+}
+
+.link {
+    text-align: center;
+    margin-top: 10px;
+    color: #043927;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.link:hover {
+    color: #8FBC8B;
+}
+
+/* Animation for container sliding in */
+@keyframes slideIn {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

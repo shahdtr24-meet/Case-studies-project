@@ -60,5 +60,9 @@ def profile():
         return render_template('profile.html')
     return redirect(url_for('signin'))
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
