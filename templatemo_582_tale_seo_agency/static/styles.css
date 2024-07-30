@@ -11,7 +11,61 @@ body {
     position: relative;
 }
 
-/* Sidebar */
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: rgba(0, 0, 0, 0.5); /* Transparent black overlay */
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: url('a.png') no-repeat center center fixed;
+    background-size: cover;
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: white;
+    z-index: -1;
+}
+
+.header-container {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 1;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
 .sidebar {
     width: 60px;
     height: 100vh; /* Full height */
@@ -58,89 +112,116 @@ body {
     background: #8FBC8B;
 }
 
-/* Content Area */
-.content {
-    margin-left: 60px; /* Adjust to fit sidebar width */
-    padding: 20px;
-    background: white;
-    position: relative;
-    z-index: 1;
-    height: 50%; /* Adjust height to occupy lower half */
-    overflow-y: auto; /* Allow scrolling if content overflows */
+
+/* Main Content */
+.main-content {
+    background: url('a.png') no-repeat center center fixed;
+    background-size: cover;
+    padding: 40px;
+    transition: transform 0.5s ease;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Align content to the bottom */
+    align-items: center; /* Center align all elements */
+    justify-content: space-between; /* Evenly space out the elements */
+    height: 100vh;
 }
 
-/* Header */
 header {
-    
-    color: #043927;
-    padding: 30px;
     text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2em;
+h1 {
+    font-size: 2.5em;
+    color: #043927;
 }
 
-/* Info Section */
 .info {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
     margin-bottom: 20px;
-}
-
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 1s forwards;
+    animation: fadeIn 2s ease-in-out;
 }
 
 /* Collaboration Section */
 .collaboration {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align the button */
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
 }
 
 .collab-toggle {
     background: #043927;
     color: #ffffff;
     border: none;
-    border-radius: 5px;
     padding: 10px 20px;
-    font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
+    transition: background 0.3s ease;
     margin-bottom: 10px;
-    text-position: center;
 }
 
 .collab-toggle:hover {
     background: #8FBC8B;
-    transform: scale(1.05);
 }
 
 .collab-content {
     display: none;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: max-height 0.3s ease, opacity 0.3s ease;
-}
-
-.collab-content p {
-    margin: 10px 0;
+    margin-top: 10px;
+    text-align: center; /* Center align the content */
 }
 
 .collab-content.show {
     display: block;
-    opacity: 1;
 }
 
-/* Animation for fade-in */
+/* Moving Cards */
+.moving-cards {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(0);
+    animation: move 2s infinite alternate ease-in-out;
+}
+
+.card img {
+    width: 80%;
+    height: auto;
+}
+
+@keyframes move {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+
 @keyframes fadeIn {
+<<<<<<< HEAD
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+
+.container p {
+    line-height: 1.6;
+
     from {
         opacity: 0;
     }
@@ -165,6 +246,7 @@ body::before {
     background: white;
     position: relative;
     z-index: 1;
+
 }
 
 .main-header{
