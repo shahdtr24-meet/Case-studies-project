@@ -19,7 +19,7 @@ firebase = pyrebase.initialize_app(Config)
 auth = firebase.auth()
 db = firebase.database()
 
-@app.route('/')
+@app.route('/' , methods = ["GET" , "POST"])
 def main():
     return render_template('home.html')
 
@@ -67,13 +67,18 @@ def profile():
         return render_template('profile.html', email=email , password= password )
     return redirect(url_for('signin'))
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
 
-@app.route('/funfact')
-def funfact():
-    return render_template('funfact.html')
+
+@app.route('/feedback' , methods = ["GET" , "POST"])
+def feedback():
+    if request.method == 'POST':
+        feedback = request.form['feedback']
+        fb = { "feedback" : feedback}
+        UID = session['user']['localId']
+        db.child('feedback').child(UID).update()
+        info = db.child("feedback").get().val()
+        return render_template("home.html" , info = info)
+    return render_template('about.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

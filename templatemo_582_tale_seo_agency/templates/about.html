@@ -8,8 +8,30 @@
     <div class="container">
         <h1>EcoPeace</h1>
         <div class="stack-images">
-            <img src="{{ url_for('static', filename='a.png') }}" alt="Image A">
-            <img src="{{ url_for('static', filename='b.png') }}" alt="Image B">
+            <!-- <img src="{{ url_for('static', filename='a.png') }}" alt="Image A">
+            <img src="{{ url_for('static', filename='b.png') }}" alt="Image B"> -->
+            <form action="/" method="POST">
+            <label> 
+                <i class="fa-solid fa-face-smile"></i> 
+                Are you satisfied with our collaboration idea?
+            </label> 
+            <div class="radio-group"> 
+                <input type="radio" id="yes" name="satisfy" value="yes" checked> 
+                <label for="yes">Yes</label> 
+  
+                <input type="radio" id="no" name="satisfy" value="no"> 
+                <label for="no">No</label> 
+            </div> 
+  
+            <label for="msg"> 
+                <i class="fa-solid fa-comments" style="margin-right: 3px;"></i> 
+                Write your Suggestions: 
+            </label> 
+            <textarea id="msg" name="feedback" rows="10" cols="30" required></textarea> 
+  
+            <button type="submit">Submit</button> 
+        </form> 
+    </div>
         </div>
     </div>
 </body>
