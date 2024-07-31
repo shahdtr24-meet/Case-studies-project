@@ -72,13 +72,18 @@ def profile():
 @app.route('/feedback' , methods = ["GET" , "POST"])
 def feedback():
     if request.method == 'POST':
+        print('meow')
         feedback = request.form['feedback']
         fb = { "feedback" : feedback}
         UID = session['user']['localId']
         db.child('feedback').child(UID).update()
         info = db.child("feedback").get().val()
-        return render_template("home.html" , info = info)
+        print('send help')
+        print(info)
+        return redirect(url_for('main'))
     return render_template('about.html')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

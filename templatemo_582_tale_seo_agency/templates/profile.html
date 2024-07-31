@@ -3,8 +3,19 @@
 <head>
     <title>Profile</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
 </head>
+<div class="sidebar">
+        <a href="{{ url_for('signin') }}"><i class="fas fa-sign-in-alt"></i> <span>Sign In</span></a>
+        <a href="{{ url_for('signup') }}"><i class="fas fa-user-plus"></i> <span>Sign Up</span></a>
+        <a href="{{ url_for('profile') }}"><i class="fas fa-user"></i> <span>View Profile</span></a>
+        <a href="{{ url_for('signout') }}"><i class="fas fa-sign-out-alt"></i> <span>Sign Out</span></a>
+        <a href="{{ url_for('feedback') }}"><i class="fas fa-info-circle"></i> <span>feedback</span></a>
+        <a href="{{ url_for('main')}}"><i class="fas fa-info-circle"></i> <span>home</span>
+
+    </div>
 <body>
+    <center>
     <div class="overlay"></div>
     <div class="container">
         <header>
@@ -13,5 +24,9 @@
         <h2> email = {{email}}</h2>
         <h2> password = {{password}}</h2>
     </div>
+    </center>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 </body>
 </html>
+<!-- 222222222222222 -->
