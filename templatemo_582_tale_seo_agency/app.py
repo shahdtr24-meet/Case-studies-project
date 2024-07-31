@@ -63,7 +63,8 @@ def profile():
         UID = session['user']['localId']
         user_data = db.child('users').child(UID).get().val()
         email = user_data['email']
-        return render_template('profile.html', email=email)
+        password = user_data['password']
+        return render_template('profile.html', email=email , password= password )
     return redirect(url_for('signin'))
 
 @app.route('/about')
