@@ -17,7 +17,6 @@ Config = {
 
 firebase = pyrebase.initialize_app(Config)
 auth = firebase.auth()
-app.config['SECRET_KEY']= 'super-secret-key'
 db = firebase.database()
 
 @app.route('/')
@@ -32,10 +31,9 @@ def signup():
         try:
             user = auth.create_user_with_email_and_password(email, password)
             session['user'] = user
-            session['users'] = []
-            UID= session['user']['localId']
-            info = { "email" : email, "password" : password}
-            db.child('users').child(UID).push(info)
+            UID = session['user']['localId']
+            info = {"email": email, "password": password}
+            db.child('users').child(UID).set(info)
             return redirect(url_for('main'))
         except:
             return 'Error creating account'
@@ -62,12 +60,19 @@ def signout():
 @app.route('/profile')
 def profile():
     if 'user' in session:
-        return render_template('profile.html')
+        UID = session['user']['localId']
+        user_data = db.child('users').child(UID).get().val()
+        email = user_data['email']
+        return render_template('profile.html', email=email)
     return redirect(url_for('signin'))
 
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+@app.route('/funfact')
+def funfact():
+    return render_template('funfact.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sign Up</title>
-
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='signinup.css') }}">
-
+    <title>Sign up</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='signinup.css') }}">
 </head>
-<body class="signup">
-
-    <div class="overlay"></div>
+<body class="signin">
     <div class="container">
         <header>
-            <h1>Sign Up</h1>
+            <h1>Sign up</h1>
         </header>
         <form method="POST" action="{{ url_for('signup') }}">
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
-            <input type="submit" value="Sign Up">
-            <a href="{{ url_for('signin') }}" class="link">Already have an account? Sign in here.</a>
+            <input type="submit" value="Sign In">
+            <a href="{{ url_for('signup') }}" class="link">Don't have an account? Sign up here.</a>
         </form>
     </div>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>

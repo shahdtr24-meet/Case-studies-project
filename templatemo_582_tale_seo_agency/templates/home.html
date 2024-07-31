@@ -13,69 +13,76 @@
         <a href="{{ url_for('about') }}"><i class="fas fa-info-circle"></i> <span>Fun Fact</span></a>
     </div>
     <div class="main-content">
-        <header class = "main-header">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-             <br>
-            <br>
-            <br>
-            <br>
-            <h1>Welcome to EcoPeace</h1>
+        <header class="main-header">
+            <h1>EcoPeace</h1>
         </header>
-
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <div class="info">
-            <p  text-position = "center" class="fade-in">EcoPeace is a non-profit organization that works to create peace in the Middle East while taking care of our planet. We bring together Israeli, Palestinian, and Jordanian environmentalists to work together towards a shared future.</p>
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="EcoPeace Logo">
         </div>
         <div class="collaboration">
             <button class="collab-toggle">Collaboration</button>
-
-            <style>
-                .collaboration {
-                margin: 0;
-                position: absolute;
-                top: 75%;
-                left: 50%;
-                -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-                    }
-            </style>
             <div class="collab-content">
-                <p>As a part of our extended social reach program, EcoPeace has collaborated and connected with other companies with a similar vision to ours. We aim to reach as many people as possible from our target audience and achieve our beautiful vision: a step closer to peace, and an improved climate in our surroundings.</p>
-                <p>A little about one of our prestigious collaborators: One of our collaborations is with a European Studies program that is launched partly in Dusseldorf, Germany, at the Heinrich Heine University. The program was founded in 2004 by Ambassador Avi Primor, together with HRH Prince El-Hassan bin Talal, who founded the Royal Scientific Society in Amman, and Prof. Sari Nusseibeh, the president of Al-Quds University in East Jerusalem.</p>
-                <p>The Master’s degree program in European Studies was launched in 2009. The students spent one year studying and living together in Germany. Since 2010, Jordanian students from Amman have been taking part in the trilateral program as well.</p>
-                <p>In the context of our collaboration, EcoPeace has added classes to the schedule of these students to educate them on the environmental situation in the Middle East. Both we and the European Studies program have similar visions. We have benefited from this collaboration: the students are more educated and speak on our behalf at many events. The European Studies program is also given beneficial services from us, such as bringing our teams to speak to the students and bringing groups of students willing to experience the Middle East, its climates, and its cultures.</p>
+                <p>As a part of our extended social reach program, EcoPeace has collaborated and connected with other companies with a similar vision to ours...</p>
+                <p>A little about one of our prestigious collaborators: One of our collaborations is with a European Studies program...</p>
+                <p>The Master’s degree program in European Studies was launched in 2009...</p>
+                <p>In the context of our collaboration, EcoPeace has added classes to the schedule of these students...</p>
             </div>
         </div>
         <div class="moving-cards">
-            <div class="card">
+            <div class="card card-1">
                 <img src="{{ url_for('static', filename='1.png') }}" alt="Logo 1">
+                <p>Card 1 Text</p>
             </div>
-            <div class="card">
+            <div class="card card-2">
                 <img src="{{ url_for('static', filename='2.png') }}" alt="Logo 2">
+                <p>Card 2 Text</p>
             </div>
-            <div class="card">
+            <div class="card card-3">
                 <img src="{{ url_for('static', filename='3.png') }}" alt="Logo 3">
+                <p>Card 3 Text</p>
             </div>
-            <div class="card">
+            <div class="card card-4">
                 <img src="{{ url_for('static', filename='4.png') }}" alt="Logo 4">
+                <p>Card 4 Text</p>
             </div>
         </div>
     </div>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script>
         document.querySelector('.collab-toggle').addEventListener('click', function() {
-            document.querySelector('.collab-content').classList.toggle('show');
+            const content = document.querySelector('.collab-content');
+            if (content.style.display === 'block') {
+                content.style.opacity = 0;
+                setTimeout(() => {
+                    content.style.display = 'none';
+                }, 500); // Match with fade-out duration
+            } else {
+                content.style.display = 'block';
+                content.style.opacity = 1;
+            }
         });
+
+        // Script to make the cards move with mirror effect
+        const cards = document.querySelectorAll('.card');
+        let currentIndex = 0;
+
+        function moveCards() {
+            cards.forEach((card, index) => {
+                const offset = (index - currentIndex) * 300; // Adjust offset as needed
+                card.style.transform = `translateX(${offset}px) scaleX(${Math.sin((offset / 300) * Math.PI) + 1})`; // Mirror effect
+            });
+            currentIndex = (currentIndex + 1) % cards.length;
+        }
+
+        // Initialize card positions
+        function initializeCards() {
+            cards.forEach((card, index) => {
+                card.style.transform = `translateX(${index * 400}px) scaleX(1)`; // Start with spacing
+            });
+        }
+
+        initializeCards();
+        setInterval(moveCards, 1000); // Move every 1 second
     </script>
 </body>
 </html>

@@ -92,3 +92,33 @@ form input[type="submit"]:hover {
         opacity: 1;
     }
 }
+/* Sign In and Sign Up Page Styles */
+body.signin,
+body.signup {
+    background: white;
+    padding: 20px;
+    background: url('tea-green-background.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.container {
+    width: 90%;
+    max-width: 400
+body.signin,
+body.signup {
+    background: white;
+    padding: 20px;
+    background: url('tea-green-background.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.container {
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
