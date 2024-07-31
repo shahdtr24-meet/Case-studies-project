@@ -76,8 +76,9 @@ def feedback():
         feedback = request.form['feedback']
         fb = { "feedback" : feedback}
         UID = session['user']['localId']
-        db.child('feedback').child(UID).update()
+        db.child('feedback').child(UID).set(fb)
         info = db.child("feedback").get().val()
+
         print('send help')
         print(info)
         return redirect(url_for('main'))
